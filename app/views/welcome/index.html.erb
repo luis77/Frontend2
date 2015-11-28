@@ -1,0 +1,137 @@
+<header>
+	<div id="logo"><h1><img src="assets/logo_cometa.png" alt='logo del hotel'></h1></div><!--el h1 tiene un peso semantico fuerte, ya que es el titulo de nuestra pagina, y buscadores como google basaran su busqueda en eso. alt, es en tal caso de que algunos navegadores no muestran imagenes, entonces en su lugar aparecera logo del hotel-->
+	<div id="navigation">
+		<nav class='callig'>
+			<ul id='navegacionPrincipal'><!--PARALLAX-.LOCALSCROLL. el id para colocarlo en el main.jd y asi poder hacer el LOCALSCROLL-->
+				<li><a href="#index">Inicio</a></li><!--PARALLAX.- LOCALSCROLL,asi funciona LOCALSCROLL href="#index" colocando dentro el id o cualquier selector css de la seccion para dirigirse en vez de a otra pagina-->
+				<li><a href="#costos">Costos</a></li>
+				<li><a href="#cuartos">Cuartos</a></li>
+				<li><a href="#contacto">Contacto y Reservaciones</a></li>
+				<li><a href="#buffet">Buffet</a></li>
+			</ul>
+		</nav>
+	</div>
+</header>	
+
+<div class="slider_container fullScreen"><!--va a contener todo el slider-->
+    <div class="slideContainer"><!--agrupara todos los sliders, y los colocara uno al lado del otro de manera horizontal, su anchura dependera de cuantos sliders le colocamos-->
+        <div class="slide fullScreen" data-background="assets/DSCF0302"></div><!--data-baclground lo utilizaremos tanto para el fondo como para el slider-->
+        <div class="slide fullScreen" data-background="assets/DSCF0303"></div>
+        <div class="slide fullScreen" data-background="assets/DSCF0308"></div>
+        <div class="slide fullScreen" data-background="assets/DSCN1592"></div>
+    </div>
+</div>
+
+<section class="fullScreen" id='index'>
+	<div class="mensajePrincipal"><!--PARALLA-. SCROLLORAMA. se hizo uso de scrollorama para el efecto q posee-->
+		<p class="triangle"><span>desde 300usd por noche</span></p><!--la etiqueta <span> se utiliza para añadir estructura a una parte de un texto. Esta etiqueta se usa comunmente para añadir un estilo determinado dentro de una sección del texto.-->
+		<h2>un lugar para disfrutar y relajarse</h2>
+		<p>Cancun, Mexico</p>
+	</div>
+</section>
+<section id='cuartos' class='fullScreen'>
+	<h1 class='centerCircle callig'>El mejor servicio</h1><!--callig es la funte TAMBIEN SE LE AGREGO UN EFECTO DE SCROLLORAMA EN main.js-->
+	<div class="half halfRooms">
+		<img src="assets/DSCF0037.jpg">
+	</div>
+	<div class="half halfRooms">
+		<img src="assets/DSCN1127.jpg">
+	</div>
+</section>
+<!--esta siguiente linea d codigo le indicara al codigo q se trata de un template(plantilla). se le tiene q poner un id. //<ol>//lista ordenada
+//{{each opciones}} itera entre un objeto opciones en el main.js-->
+<script type=" text/x-jquery-tmpl" id='precioTemplate'>
+
+    <div>
+        <div class="ribbon"></div>
+        <h3>${paquete}</h3>
+        <p><strong>Contenido del paquete</strong></p>
+        <ol>
+            {{each opciones}}
+                <li>${opcion}</li>
+            {{/each}}
+        </ol>
+        <p class="costo">${costo}</p>
+        <a id='regresar-ventana'>Regresar</a>
+    </div>
+
+</script> 
+
+<section id="costos" class='fullScreen callig' data-stellar-background-ratio="0.5"><!--PARALLAX-. STELLAR data-stellar-background-ratio="1" la configuracion de las velocidades son a travez d los atributos data, La velocidad normal como se mueven las cosas es 1, y si el valor esta por debajo de 1 es poruqe el backgraund se va a mover mas lento q el resto de los elementos de la pagina es y si lo aumentamos se vera mas rapido--> 
+	<div class="marginTop"><!--va a bajar un poquito de cada una de nuestras clases-->
+
+		<div class="precio" data-stellar-ratio="1.89" data-stellar-vertical-offset="200" ><!--PARALLAX.- STELLAR, HARA QUE LOS ELEMENTOS BAJEN RAPIDO O LENTO. TAMBIEN SE LE AGREGRO SCROLLORAMA en main.js-->
+			<div class="ribbon"></div>
+			<h3>paquete básico</h3>
+			<p>Disfruta de nuestro paquete sencillo, perfecto para vacaciones improvisadas donde el presupuesto es limitado</p>
+			<p class="costo">300</p>
+	        <a class="ver-mas" data-number='0'>Conoce más del paquete</a>
+<!--el data-number es para obtener el dato y saber cual es cual a la hora de correr el javascript con relacion a las opciones opcion para hacer el FLIP-->
+		</div>
+
+		<div class="precio" data-stellar-ratio="1.5"  data-stellar-vertical-offset="1500"><!--PARALLAX.- STELLAR, HARA QUE LOS ELEMENTOS BAJEN RAPIDO O LENTO. ya que 1.5 hace q el objeto se pierda,y no se encuentre en su posicion, se hace uso del VERTUCAL-OFFSET para darle una ayuda al elemento para que llegue a su posicion inicial-->
+
+			<div class="ribbon"></div>
+			<h3>paquete básico</h3>
+			<p>Disfruta de nuestro paquete sencillo, perfecto para vacaciones improvisadas donde el presupuesto es limitado</p>
+			<p class="costo">300</p>
+			<a class="ver-mas" data-number='1'>Conoce más del paquete</a>
+
+		</div>
+
+		<div class="precio" data-stellar-ratio="3" data-stellar-vertical-offset="-650">
+			<div class="ribbon"></div>
+			<h3>paquete básico</h3>
+			<p>Disfruta de nuestro paquete sencillo, perfecto para vacaciones improvisadas donde el presupuesto es limitado</p>
+			<p class="costo">300</p>
+            <a class="ver-mas" data-number='2'>Conoce más del paquete</a>
+
+		</div>
+
+	</div>
+</section>
+<section id='buffet' class='fullScreen'><!--GALERIA con CSS, Y EL JAVASCRIPT SOLO PARA CLICS PARA CAMBIAR LA IMAGEN-->
+    <div class="image_food viewport"  data-background='assets/DSCF0330'></div><!--la clase viewport es la imagen q se mostrara en grande-->
+    <div class="image_food" data-background='assets/DSCF0311'></div>
+    <div class="image_food" data-background='assets/DSCF0371'></div>
+    <div class="image_food" data-background='assets/DSCF0331'></div>
+</section>
+<section class="fullScreen" id='contacto' data-stellar-background-ratio="0.2"><!--PARALLAX-. STELLAR data-stellar-background-ratio="1" MUEVE EL FONDOla configuracion de las velocidades son a travez d los atributos data, La velocidad normal como se mueven las cosas es 1, y si el valor esta por debajo de 1 es poruqe el backgraund se va a mover mas lento q el resto de los elementos de la pagina es y si lo aumentamos se vera mas rapido-->   
+    <div class="marginTop callig"><!--callg es la fuente de letra-->
+        <h1>Contacto</h1>
+        <div class="half">
+            <h3>Redes Sociales</h3>
+            <span class="social"><a href='http://facebook.com'>F</a></span><!--es importante colocarlas en mayusculas, esto con ayuda del each al principio del css utilizara la fuente Socialico, la clase social esta definida en css para utilizar la fuente Socialico. con shift alt w seleccionando un elemento, se le encierra dentro de la etiqueta que se desee-->
+            <span class="social">O</span>
+            <span class="social">X</span>
+            <h3>Dirección y teléfono</h3>
+            <p>Dirección inventada, avenida inventada, número inventado</p>
+            <p>Teléfono 23212312</p>
+        </div>
+        <div class="half">
+            <div id="google_canvas" data-stellar-ratio="2.08"><!--falta descomentar el animate de este id google canvas en el crollorama-->
+                
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+<!--GOOGLE MAPS colocara el codigo necesario para colocar mapas en nuestra app. UN APIS ES UNA FORMA DE TRABAJAR CON EL CODIGO DE UNA APLICACION DE MANERA EXTERNA A TRAVEZ DE LOS METODOS Q LA APLICACION OFRECE. ES DECIR GOOGLE MAPS LIBERA UNA LIBRERIA PARA TRABAJAR SUS MAPAS A TRAVEZ DE CIERTOS METODOS Q ELLOS MISMOS LIBERAN A TRAVEZ D ESA LIBRERIA. HAY APIS DE MUCHAS APLICACIONES
+
+OPCIONES PARA CONFIGURAR GOOGLEMAPS-> https://developers.google.com/maps/documentation/javascript/reference?hl=es#MapOptions
+-->
+        
+    <script src='http://ajax.microsoft.com/ajax/jquery.templates/beta1/jquery.tmpl.min.js'></script><!--PERMITE QUE FUNCIONEN LOS TEMPLATES-->
+
+<!--
+<nav class="slider_controls">
+	<li>1</li>
+	<li>2</li>
+	<li>3</li>
+	<li>4</li>
+</nav>-->
+
+    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>

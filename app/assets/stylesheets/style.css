@@ -1,0 +1,583 @@
+@charset "UTF-8";
+/*fuente con inconos*/
+@font-face {
+  font-family: "Socialico";
+  font-style: normal;
+  font-weight: normal;
+  /*src:url('../assets/Socialico.eot');*/
+  /*esta fuente es para internet explorer*/
+  src: url("../assets/Socialico.otf"), url("../font/Socialico.ttf"); }
+/*VARIABLE SASS te permite guardar colores en variables, ya que evita q te estes recordando el valor exadecimal todo el tiempo*/
+html, body {
+  /*selecciona ambos*/
+  height: 100%;
+  /*los dos abarcaran el cien por ciento de la pagina*/
+  margin: 0;
+  padding: 0;
+  /*altura*/
+  max-width: 100%;
+  /*RESPONSIVE ni el html ni el body ni nada en la pagina puede ser mas grande que la pantalla. responsive*/ }
+
+a {
+  /*PARA EVITAR QUE EL NAVEGADOR COLOQUE SU ESTILO EN LOS LINKS*/
+  color: inherit;
+  /*LA PROPIEDAD COLOR DEFINE EL COLOR QUE NUESTRA FUENTE VA TENER. EL VALOR INHERIT LE DICE AL ELEMENTO QUE VA A HEREDARLO, Q VA A TOMARLO DE LA REGLA PADRE Q ESTA ARRIBA*/
+  text-decoration: none;
+  /*va a quitar la linea de abajo q aparece en los links*/
+  /*para evitar q cambien de color cuando ya se ha visitado una pagina, se coloca visited, colocando primero el signo & para seleccionar el padre*/ }
+  a:visited {
+    color: inherit; }
+  a:hover {
+    color: inherit; }
+
+.callig {
+  font-family: 'Calligraffitti', cursive; }
+
+.centerCircle {
+  position: absolute;
+  /*relative vamos a poder aplicar los atributos top right bottom pero desde la posicion actual del elelemento. osea q lo movera a en vez de el todo de la pagina, lo hara en el elemento q se encuentre, como lo es el section */
+  top: 30%;
+  z-index: 5;
+  height: 100px;
+  width: 100px;
+  padding: 50px;
+  padding-bottom: 60px;
+  background-color: rgba(0, 0, 0, 0.7);
+  /*primero es el rojo, el verde, el azul, luego la opacidad*/
+  color: #f7f7f7;
+  text-align: center;
+  border-radius: 100px;
+  /*obtenemos un circulo colocando 100px q es el mismo alto y ancho*/
+  font-size: 1.8em;
+  /*para q se vea centrado*/
+  /*cuando queremos centrar cosas q tienen un ancho definido en css, la forma mas sencilla es unar margin. pero cuando no le damos margenes de izquierda a derecha y le decimos al navegador que lo haga de manera automatica, esto provoca que centre el objeto
+  	margin-right: auto;
+  	margin-left: auto;*/
+  /*una forma mas corta de escribirlo es con la siguiente linea de codigo*/
+  /*margin: 0 auto;*/
+  /*el primero parametro lo utilizara para top y botom y el segundo left y right. siempre y cuando este en position relative*/
+  left: 40%;
+  /*para los navegadores q no soporten calc, ya que en el caso de q si, sera sustituido por el calc*/
+  left: calc(50% - 100px);
+  /*METODO PARA HACER CALCULOS. se le resta el tamaño de nuestro center circle q es de 100px*/
+  /*left: -webkit-calc(50% - 100px);*/
+  /*METODO PARA HACER CALCULOS. se le resta el tamaño de nuestro center circle q es de 100px*/
+  border: solid 2px #d8d68c;
+  /*tipo de borde, solif, dotted, double. el segundo parametro es el grueso del borde y el tercero el color*/ }
+
+#costos {
+  background-image: url(../assets/DSCN1332.jpg);
+  background-size: 100% auto; }
+  #costos .precio {
+    position: relative;
+    /*PARALLAX.- SCROLLORAMA. position relative para que la animacion funcione*/
+    width: 28%;
+    margin-left: 3.5%;
+    /*margen izquierdo con relacion a la pantalla*/
+    display: inline-block;
+    background-color: #f7f7f7;
+    vertical-align: top;
+    /*para q la altura de los elementos no cambie y todos se mantengan  en la misma altura*/
+    padding: 2em 0.5%;
+    /*el padding es el margen interno para los elementos que estan por dentro*/
+    text-align: center;
+    padding-top: 0;
+    border: solid 1px #CCC; }
+    #costos .precio h3 {
+      font-size: 2em;
+      color: #3e87cc;
+      /*VARIABLE SASS declarada al principio de la hoja de estilo*/ }
+    #costos .precio .costo {
+      background-color: #3e87cc;
+      color: #fff;
+      font-size: 1.5em;
+      width: 50%;
+      margin: 0 auto;
+      padding: 0.5em; }
+    #costos .precio .ver-mas {
+      display: block;
+      margin-top: 30px;
+      cursor: pointer; }
+
+#buffet {
+  position: relative; }
+  #buffet .image_food {
+    z-index: 20;
+    position: absolute;
+    right: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 80px;
+    transition: all 1s ease-in;
+    /*que aplique a todo, y q tarde un segundo en hacer el efecto. el tercero es el efecto, ease-in empieza lento y termina rapido y en ease-out es al contrario*/
+    background-size: 100%;
+    background-position: 50%;
+    /*50% hacia arriba*/
+    cursor: pointer;
+    /*background-color: red; para ver si se ve*/ }
+  #buffet .viewport {
+    /*EL VIEWPORT SERA LA IMAGEN QUE APAREZCA EN GRANDE EN LA PANTALLA cuando tengamos las imagenes sin la clase viewport, estas aparezcan enfrente de la q tenga el viewport*/
+    z-index: 1;
+    /*para q aparezca detras de los thumbnails o los botones de imagenes*/
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
+    /*quitamos el borde redondeado que debe de estar heredando de la clase image_food*/
+    transition: all 1s ease-in;
+    cursor: auto; }
+
+#contacto {
+  background: url(../assets/DSCN1218.jpg);
+  background-size: 100% auto;
+  text-align: center; }
+  #contacto h1, #contacto .social {
+    color: #f7f7f7;
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.8); }
+  #contacto .marginTop {
+    padding-top: 7em; }
+  #contacto .social {
+    /*ESTA CLASE SOLO VA A REPERCUTIR EN CONTACTO PORQUE ESTA DENTRO DE EL. Y ESTO LO HACEMOS POR SI QUEREMOS USAR ESA CLASE SOCIAL EN ALGUNA OTRA PARTE NO REPERCUTE EL CAMBIO*/
+    font-size: 4em;
+    transition: all 0.4s;
+    display: inline-block;
+    cursor: pointer; }
+    #contacto .social:hover {
+      color: #3e87cc;
+      text-shadow: 0px 0px 2px #000;
+      /*sombra. muy buen efecto*/ }
+  #contacto p {
+    font-size: 1.5em;
+    color: #222;
+    text-shadow: 0px 0px 2px #000;
+    /*sombra. muy buen efecto*/
+    background-color: rgba(250, 250, 250, 0.7);
+    margin: 0; }
+  #contacto h3 {
+    font-size: 1.8em;
+    /*tamaño*/
+    line-height: 0.9em;
+    /*cuando por ejemplo seleccionamos un texto con el cursor, nos damos cuenta de que abarca un margen por asi  decirlo, o un espacio que lo deja en blanco. eso es algo q se puede modificar con esta propiedad */
+    background: #f7f7f7;
+    color: #3e87cc;
+    padding: 0.2em; }
+
+#cuartos {
+  position: relative;
+  /*se debe de colocar el position relative ya q es el padre de centreCircle, q tiene su position en absolute, y por lo tanto, si pones el padre en relative y el hijo en absolute, el position absolute del hijo se convierte en relativo */ }
+
+.fullScreen {
+  /*como hay varias partes de la pagina que ocupan toda la pantalla, lo mas correcto es crear una clase llamada fullscreen*/
+  width: 100%;
+  height: 100%;
+  /*establecen el height y el widht de los elementos a lo q se lo añadamos a 100%*/
+  padding: 0;
+  margin: 0;
+  background-attachment: fixed;
+  /*PARALLAX-. STELLAR, EL BACKGRAUND ATTACHMENT ESTA RELACIONADO CON COMO SE MUEVE EL FONDO CON RESPECTO AL SCROLL, EN FIX NO SE VA A MOVER*/
+  /*margin-left: -1px; PORCENTAJE?/*/ }
+
+.half {
+  display: inline-block;
+  margin-right: -4px;
+  width: 50%;
+  vertical-align: top; }
+
+.halfRooms {
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  z-index: 0; }
+  .halfRooms img {
+    /*filter: blur(10px);*/
+    /*filtros de desenfoque*/
+    /*filter: sepia(80%);*/
+    /*aqui los valores son del 0 a 100%*/
+    /*filter: grayscale(0.5);*/
+    /*en este filtro, blanco y negro. puede ser 0 o puede ser 1*/
+    /*filter: saturate(120%);*/
+    /*aqui los valores son del 0 a 100%*/
+    /*-webkit-filter: contrast(200%);*/
+    /*WEBKIT EN CASO DE Q ESTE EFECTO NO SEA COMPATIBLE CON CHROME. aqui los valores son del 0 a 100%*/
+    /*filter: contrast(100%) blur(3px);*/
+    /*EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/
+    /*filter: grayscale(1) blur(2px) brightness(0%);*/
+    /*CON BRILLO QUE SE OCULTA Y APARECE---EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/
+    filter: grayscale(1) blur(2px);
+    /*EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/
+    transition: all 0.1s;
+    /*para que no lo haga de golpe*/
+    width: 100%;
+    /*efectos cuando el cursor este sobre este elemento*/ }
+    .halfRooms img:hover {
+      filter: grayscale(0.2) blur(0px);
+      /*EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/
+      /*filter: contrast(200%) blur(0px);*/
+      /*EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/
+      /*filter: grayscale(0.2) blur(0px) brightness(105%);*/
+      /*CON BRILLO, QUE SE OCULTA Y APARECE---EN EL CASO DE QUE SEAN DOS EFECTOS, DEBEN DE IR DE ESTA FORMA*/ }
+
+header {
+  /*pseudo elemento es para crear figuras, & es un operador, que toma el valor del padre, luego el pseudoelemento before*/
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  top: -9em;
+  /*el em toma en cuenta la densidad de los pixeles en cada uno de los dispositivos, y es el mas recomendado para responsive design*/
+  text-align: center;
+  transition: all 0.4s;
+  /*con el hoover hacemos que los cambios se hagan cuando se coloca el cursor sobre el elemento, pero con el transicion le damos una animacion. en lugar de la transicion se hiciese de golpe, se hace de manera gradual, a travez del tiempo especificado. el all se aplica a todas las propiedades, o bien puede ser top en vez de all, pero all es mas conveniente. hay un tercer parametro que puede ser linear, ease-in, ease-out*/ }
+  header:hover {
+    top: -6em;
+    /*el aspersal, hace referencia al header (&). el hoover permite que se apliquen propiedades css una vez q el mause este encima del elemento*/ }
+  header:before {
+    /*PSEEUDOELEMENTO, comienzan con &:*/
+    left: 0;
+    /*las variables comienzan con aspersal $, como php. el mixin evita que se repita el codigo, son un grupo de reglas css que se insertan y estan predefinidas en otro lugar. ademas pueden recibir parametros efectoEncabezado es el nombre que le ponemos*/
+    content: "";
+    /*los pseudoelemento tienen una propiedad indispensable, sino no se colocan. y al menos debe tener doble comilla*/
+    position: absolute;
+    z-index: -1;
+    /*se refiere a la profundidad, a la dimension, para que se quede en el fondo*/
+    top: 0;
+    /*esta propiedad cuando se combina con absolute, se colocara por encima de todo, pero al tener position fixed, hace que el elemento se coloque hasta arriba pero no de toda la pagina sino del header*/
+    height: 100%;
+    width: 51%;
+    background: #000;
+    /*el color de fondo, va a venir como parametro*/
+    transform: skew(0deg, 5deg);
+    /*modifica el elemento ciertos grados en x y ciertos grados en y. unquote quita las comillas. cero grados en x y los que se coloque en y en el include*/ }
+  header:after {
+    /*PSEUDO ELEMENTO*/
+    /*las variables comienzan con aspersal $, como php. el mixin evita que se repita el codigo, son un grupo de reglas css que se insertan y estan predefinidas en otro lugar. ademas pueden recibir parametros efectoEncabezado es el nombre que le ponemos*/
+    content: "";
+    /*los pseudoelemento tienen una propiedad indispensable, sino no se colocan. y al menos debe tener doble comilla*/
+    position: absolute;
+    z-index: -1;
+    /*se refiere a la profundidad, a la dimension, para que se quede en el fondo*/
+    top: 0;
+    /*esta propiedad cuando se combina con absolute, se colocara por encima de todo, pero al tener position fixed, hace que el elemento se coloque hasta arriba pero no de toda la pagina sino del header*/
+    height: 100%;
+    width: 51%;
+    background: #000;
+    /*el color de fondo, va a venir como parametro*/
+    transform: skew(0deg, -5deg);
+    /*modifica el elemento ciertos grados en x y ciertos grados en y. unquote quita las comillas. cero grados en x y los que se coloque en y en el include*/
+    right: 0; }
+  header nav ul {
+    margin: 0;
+    color: #f7f7f7;
+    font-weight: bold;
+    padding-bottom: 1em; }
+    header nav ul li {
+      display: inline-block;
+      /*RESPONSIVE*/
+      padding: 0 10px;
+      /*espacios entre cada uno*/ }
+  header #logo {
+    background-color: #000;
+    position: relative;
+    width: 15%;
+    /*del 15% del ancho de la pagina*/
+    text-align: center;
+    min-width: 100px;
+    /*ya que 15% es muy pequeño en un telefono, es bueno ponerle un ancho minimo, no menos de 100 px*/
+    max-width: 100%;
+    /*para que no sobrepase el ancho de la pagina*/
+    left: 43%;
+    /*para que mas o menos coloque siempre en el centro la imagen*/
+    height: 100px;
+    top: 140px;
+    z-index: 5;
+    border-radius: 5em 0; }
+    header #logo img {
+      margin-top: -20px;
+      /*sirve para subirlo*/
+      width: 100px; }
+
+.marginTop {
+  width: 80%;
+  /*que ocupe el 80% de la pantalla*/
+  margin: 0 auto;
+  padding-top: 7em; }
+
+.mensajePrincipal {
+  width: 40%;
+  /*para q ocupe solo la mitad de la pagina,por si el mensaje fuese a salirse mas o alguno de los datos colocados, para q el mensaje no este todo alargado, sino que se forme como especie de parrafo*/
+  padding-top: 10%;
+  color: #f7f7f7;
+  position: relative;
+  /*PARALLAX.- SCROLLORAMA position relarive para que la animacion funcione*/
+  text-shadow: 5px 5px 0px #000;
+  /*permite dar sombras al texto,recibe 4 parametros, los primeros dos son las distancias en X y en Y hacia donde se proyectara la sobra, el tercero es el blur de la sombra q es el desenfoque, y el 4 es el color*/
+  /*text-shadow: 0px 0px 20px #000;*/
+  /*con este tipo de sombra, se puede distinguir un poco las letras sin importar el contraste*/
+  /*text-shadow: 2px 2px 10px red;*/ }
+  .mensajePrincipal h2 {
+    color: #ededed;
+    font-size: 3em; }
+  .mensajePrincipal .triangle {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+    /*opacidad*/
+    /*triangulo*/
+    border-top: 100px solid transparent;
+    border-left: 190px solid #000;
+    border-bottom: 100px solid transparent;
+    /*
+    		    //ejemplo de otro triangulo
+    		border-top: 100px solid #000;
+    		border-right: 100px solid transparent;
+    		border-left: 190px solid transparent;
+    		border-bottom: 100px solid transparent;
+    
+    		    //ejemplo de otro triangulo
+    		border-top: 100px solid #000;
+    		border-right: 100px solid transparent;
+    		border-left: 100px solid transparent;
+    		border-bottom: 100px solid transparent;
+    
+    			//ejemplo de otro triangulo
+    		border-top: 100px solid transparent;
+    		border-right: 100px solid #000;
+    		//border-left: 100px solid transparent;
+    		border-bottom: 100px solid transparent; */ }
+    .mensajePrincipal .triangle span {
+      line-height: 2em;
+      display: block;
+      /*inline no permite q cambiemos el height ni el weight, un span viene por defecto en inline, hay q cambiarlo a block o inlineblock*/
+      width: 130px;
+      top: -2em;
+      left: -180px;
+      position: relative; }
+  .mensajePrincipal p {
+    font-weight: bolder; }
+
+#regresar-ventana {
+  cursor: pointer;
+  display: block;
+  margin-top: 10px; }
+
+.ribbon {
+  width: 117%;
+  /*para q envuelva la caja*/
+  height: 50px;
+  position: relative;
+  /*para q podamos moverlo*/
+  left: -25px;
+  top: 20px;
+  background: url(../assets/ribbon.png);
+  /*tambn se puede poner background-image. en css se puede poner de las dos formas*/
+  background-size: 100% 100%;
+  /*con esta propiedad se define el tamaño del archivo de arriba, osea el background. con los dos 100%, se va a adaptar al tamaño del div. en este caso 117% de ancho y 50 px de alto*/ }
+
+.slider_container {
+  position: absolute;
+  /*fixed sin importar que se haga scroll, ahi va estar siempre, no se mueve. absolute da la posibilidad de colocar el elemento con top y left en cualquier parte de la pagina*/
+  overflow: hidden;
+  /*overflow, todo aquello que indicamos que pasara si el contenido del texto se sale del tamaño del elemento, en este caso, lo oculta. tambn puede ser con la propiedad scroll y con esta hace que si se sale el texto, agrega una barra desplazadora*/
+  top: 0px;
+  left: 0;
+  /*se relaciona con el position que acabamos de establecer en fixed, top y left*/
+  z-index: -2;
+  /*para q no se coloque por encima de nadie, se quede como el fondo*/
+  background-color: black; }
+  .slider_container .slideContainer {
+    white-space: nowrap;
+    /*todos los elementos los vaya colocando hacia la derecha, con la misma altura uno al lado del otro, de forma horizontal*/
+    height: 100%; }
+    .slider_container .slideContainer .slide {
+      display: inline-block;
+      background-color: #fff;
+      margin-right: -4px;
+      /*borra el espacio que se forma entre los elementos*/
+      vertical-align: top;
+      /*para alinearse hasta arriba, esta propiedad esta muy relacionada con display:inline-block*/
+      background-size: 100%;
+      /*para que el fondo cubra todo el ancho y adapte su alto*/
+      background-position: bottom;
+      /*para que lo coloque en la parte de hasta abajo de nuestro elemento*/
+      /***************************hasta aqui****************************/ }
+
+.social {
+  font-family: 'Socialico'; }
+
+/*
+/las mediaquery son capacidad del css q permiten especificar ciertas reglas, evaluando condiciones del dispositivos en el q estamos, condiciones como el ancho del dispositivo, el alto del dispositivo, la orientacion del dispositivo, o otras no tan comunes como: cuantos colores soporta, la relacion entre el ancho o alto del dispositivo/
+@media (max-width: 900px){
+	body{
+		display: none;
+	}
+}*/
+/*
+@media screen and (max-width: 900px){/*cuanlquier pantalla y el maximo de ancho sea 900/
+	body{
+		display: none;
+	}
+}
+@media tv and (max-width: 900px){/*si es un tv y la pantalla es 900px/
+	body{
+		display: none;
+	}
+}
+@media print and (max-width: 900px){/*si es una impresora y el ancho de pantalla es de 900px/
+	body{
+		display: none;
+	}
+}
+@media all and (max-width: 900px){/*para q aplica a todos los elementos/
+	body{
+		display: none;
+	}
+}
+
+@media not screen and (max-width: 900px){
+	body{
+		display: none;
+	}
+}
+@media only screen and (max-width: 900px){
+	body{
+		display: none;
+	}
+} 
+
+@media (device-aspect-ratio: 16/9){ / se le pasan dos palores positivos enteros, es para especificar la relacion q existe entre el radio horizontal y el vertical en pixeles. si el ancho del dispositivo es quivalente a 16 el alto del dispositivo automaticamente es 9/
+	body{
+		display: none;
+	}
+} 
+
+*/
+/*RESPONSIVE.- target a dos tipos de dispositivos, las tablas y los smartphones*/
+/*RESPONSIVE.- para las tabletas*/
+@media (max-width: 960px) {
+  header {
+    background-color: #000;
+    /*se le coloco un fondo negro*/ }
+    header nav ul li {
+      /*oculta los elementos*/
+      opacity: 0;
+      transition: all 0.4s; }
+    header #logo {
+      padding: 1em;
+      transition: all 1s; }
+    header:active nav ul {
+      /*como el hover no se puede hacer en muchos dispositivos, entonces cambiamos el hover por el active. active es un pseudoelemento que se pispara cuando nosotros seleccionamos un elemento en css y lo seleccionamos. para q esto funcione, hay q agregarle ontouchstart en el body de la pagina*/
+      height: 130px;
+      /*cambiamos que cuando hagamos hover crezca el alto del cuerpo*/ }
+    header:active nav ul li {
+      /*CUANDO ALGUIEN HAGA TOUCH MUESTRE LOS ELEMENTOS QUE ACABAMOS DE OCULTAR*/
+      opacity: 1; }
+    header:active #logo {
+      /*como el hover no se puede hacer en muchos dispositivos, entonces cambiamos el hover por el active*/
+      top: 300px; }
+
+  .fullScreen {
+    /*cuando haya divs que ocupn toda la pantalla, colocarle min height en 100% y ademas en automatico. porque cuando se va a hacer el target de la pagina en una pc, el ancho siempre sera mas grande que el alto, pero en un movil,es lo contrario, el alto sera mas grande q el alto, y se corrige de esta manera*/
+    min-height: 100%;
+    height: auto;
+    /**/ }
+
+  #index {
+    background: url(../assets/DSCF0302-movil.jpg);
+    /*dado q en resoinsive no hay una especificacion en html5 y en css que ofresca una alternativa sustentable a las imagenes. por lo tanto se debe hacer de esta forma que es cargando imagenes mas pequeñas, para q el usuario no tenga q descargar una imagen tan grande y pesada en su dispositivo ya que su disposivo no podria mostrarla*/
+    background-size: auto 100%;
+    /*dado que en los dispositivos el alto es mas grande que el ancho, colocamos todo el alto en 100% y el ancho en automatico para que se de por si solo*/ }
+
+  #buffet {
+    height: 100%; }
+    #buffet .image_food {
+      background-size: auto 100%;
+      background-position: top 50%; }
+
+  #contacto {
+    background: url(../assets/DSCN1218-movil.jpg);
+    background-size: auto 100%; }
+
+  #costos {
+    background-size: auto 100%;
+    background: url(../assets/DSCN1332-movil.jpg);
+    height: 100%; }
+    #costos .precio {
+      width: 45%;
+      /*para que solo se desplieguen dos elementos*/
+      margin: 0 auto; }
+
+  #go_up {
+    display: none; }
+
+  .img-principal {
+    display: none; }
+
+  .centerCircle {
+    position: static;
+    border-radius: 0px;
+    max-width: 100%;
+    top: 0px;
+    width: 100%;
+    height: auto;
+    padding: 0;
+    margin-top: 1em; }
+
+  .half {
+    display: block;
+    width: 100%;
+    top: 0px; }
+
+  .slideContainer {
+    display: none; } }
+@media (max-width: 600px) {
+  /*PARA LOS MOVILES*/
+  .fullScreen:nth-of-type(1) {
+    background: url(../assets/intro-movil.jpg);
+    background-size: auto 100%; }
+
+  .hidePhone {
+    display: none; }
+
+  .mensaje {
+    margin-top: 0;
+    font-size: 1em;
+    padding: 0;
+    width: 100%; }
+
+  * {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word; }
+
+  #main, .down {
+    width: 100%; }
+
+  [class*="span"],
+  .row-fluid [class*="span"] {
+    display: block;
+    float: none;
+    width: 100%;
+    margin-left: 0; }
+
+  .posts article {
+    display: block;
+    width: 100%; }
+
+  #costos {
+    height: auto; }
+
+  #costos .precio {
+    width: 100%;
+    /*mostramos un elemento que abarque toda la pantalla y no tres como normalmente lo haciamos*/
+    display: block;
+    margin: 0; }
+
+  header nav ul li {
+    width: 80%;
+    margin: 0 auto;
+    display: block; }
+
+  .slideContainer {
+    display: none; } }
+
+/*# sourceMappingURL=style.css.map */

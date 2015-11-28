@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html class="no-js" lang="">
+<head>
+	<meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>HOTEL COMETA</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!--evita q el dispositivo movil no escale la pagina, sino que la muestre segun la resolucion de la pantalla-->
+
+  
+	
+	<link href='https://fonts.googleapis.com/css?family=Calligraffitti' rel='stylesheet' type='text/css'>
+
+	
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+    <!-- Place favicon.ico in the root directory -->
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body ontouchstart=""><!--RESPONSIVE.- con en ontouchstart le decimos al navegador que no haga nada, y esto activa el pseudo elemento active del css, que es para sustituir al hover en la version mobile-->
+  <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+     <!--   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.3.min.js"><\/script>')</script><!-la libreria min de jquery es optimizada->-->
+      
+
+    <!--      ***************************JQUERYS AGREGADOS EN STYLESHEETS*************************
+   *jquery.flip es un plugin externo d jquery q permite hacer la rotacion de tarjetas de precio
+    https://nnattawat.github.io/flip/
+   
+    *jquery.ui core y effect es para el cambio de color del flip de la tarjeta precio
+
+
+    /************ SCROLLTO Y LOCALSCROLL son plugins de jquery, para hacer el scroll a la pagina mediante el menu de navegacion LA DOCUMENTACION: https://github.com/flesler/jquery.localScroll *******************************/
+  
+    /*******Jquery.scrollorama y stellar sirven para hacer el PARALLAX. 
+
+    STELLAR nos sirve para q los elementos de la pagina se muevan a distinta velocidad del SCROLL en el caso mas particular de los background
+                documentacion donde podremos modificar STELLAR a nuestro gusto:
+    http://markdalgleish.com/projects/stellar.js/docs/
+    ***********/
+
+    <!-el archivo normalize crea una estructura comun entre todos los navegadores, reglas predeterminadas a todos los navegdores. en ningun navegador la pagina se vea diferente-->
+
+
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!--sirve para traquear las visitas, cuantas visitas hay, desde q navegador, so, dispositivo movil o tabletas, desde que pais, etc. para q funcione, se debe crear una cuenta desde google analytics y tomar el id de tu sitio(no se hara en este tutorial ya q no pertenece a frontend)-->
+        <script>
+            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+            e.src='https://www.google-analytics.com/analytics.js';
+            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+            ga('create','UA-XXXXX-X','auto');ga('send','pageview');
+        </script>
+
+<%= yield %>
+
+</body>
+</html>
